@@ -13,6 +13,7 @@
 load('CA3MODEL.mat')
 
 v = 0.5; %<- UPDATE to start at opposite color, 0.01 green, 0.90 red
+data.light = data.In.green;
 Nv0 = [10E6;10E6;10E6;v]; %population density cells/cm^3 of G, R & flex pico, v
 nz = 6;
 data.k = k;
