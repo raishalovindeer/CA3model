@@ -15,7 +15,7 @@ load('CA3MODEL.mat')
 
 data.In = In;
 v = 0.5; % <-starting position 0.01 green, 0.90 red
-data.light = data.In.red;
+data.light = data.In.green;
 Nv0 = [10E6;10E6;10E6;v]; % cells/cm^3 [G,R,flex pico, v]
 data.nz = 6;
 data.k = k;
