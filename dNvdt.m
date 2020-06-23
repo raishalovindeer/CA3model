@@ -2,14 +2,10 @@ function Nvdot = dNvdt(t,Nv,data)
 % Nvdot = dNvdt(t,Nv,data)
 
 v = Nv(4);
-pmax = data.pmax;
 phi_fp = data.phi_fp;
 phi_gp = data.phi_gp;
 phi_rp = data.phi_rp;
 
-L = data.L;
-zm = data.zm;
-z = data.z;
 Irradiance = I(Nv(1),Nv(2),Nv(3),v,data);
 [photons_absorbed,Ikfp] = Gam(Irradiance,data);
 if Irradiance(130)>=Irradiance(230)
