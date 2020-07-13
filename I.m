@@ -11,5 +11,4 @@ kbg = data.kbg;
 Incoming_light = data.light;
 z = data.z;
 Irradiance = Incoming_light.*exp(-(kgp*Ngp+krp*Nrp+kfp*Nfp+kbg)*z); %for competition
-%Irradiance = Incoming_light.*exp(-(kfp*Nfp+kbg)*z);                % for monoculture
 end
