@@ -30,14 +30,14 @@ Abs = A(Nv,data);           % absorption per cm
 
 figure(1)
 plot(Td,N,'LineWidth',3)
-legend('green pico','red pico','flexible pico')
+legend('green pico','red pico','flexible pico','Location','best')
 title('Density in continuous light')
 xlabel('Time, days')
 ylabel('Cell density, cells cm^-3')
 
 figure(2) 
 plot(Td,Abs,'LineWidth',3)
-legend('green pico','red pico','flexible pico')
+legend('green pico','red pico','flexible pico','Location','best')
 title('Absorption in continuous light')
 xlabel('Time, days')
 ylabel('Absorption, cm^-1')
