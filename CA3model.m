@@ -13,14 +13,12 @@
 %% Initial & Calculated Values
 load('CA3MODEL.mat')
 
-v = 0.5; % <-starting position 0.01 green, 0.90 red
 data.light = data.In.green;
-Nv0 = [10E6;10E6;10E6;v]; % cells/cm^3 [G,R,flex pico, v]
+Nv0 = [10E6;10E6;10E6;0.5]; % cells/cm^3 [G,R,flex pico, v0.01g, 0.9r]
 data.nz = 6;
-data.z = 5;
-data.L = L/(60*60);         % converted to /s
-data.pmax = pmax/(60*60);   % converted to /s
-z = linspace(0,zm,data.nz);
+data.L = data.L/(60*60);         % converted to /s
+data.pmax = data.pmax/(60*60);   % converted to /s
+data.z = linspace(0,data.zm,data.nz);
 tspan = [0,(60*60*24*50)]; % model span, seconds
 
 [T,Nv] = ode45(@(t,Nv) dNvdt(t,Nv,data),tspan,Nv0);

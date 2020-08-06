@@ -8,11 +8,11 @@ Nfp = Nv(:,3);
 v = Nv(:,4);
 Inl = data.light;
 zm = data.zm;
-kgp = data.k.gp;
-krp = data.k.rp;
-kpe = data.k.pe;
-kpc = data.k.pc;
-kchl = data.k.chl;
+kgp = data.k(:,1);
+krp = data.k(:,2);
+kpe = data.k(:,3);
+kpc = data.k(:,4);
+kchl = data.k(:,5);
 dlam = 1;
 x = zeros(length(Nv),1);
 
