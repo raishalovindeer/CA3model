@@ -10,28 +10,37 @@
 % Kbg, background absorption (/cm), calculated ...
     %(log(In.white)-log(Out.white))/3;
 
-%% Initial & Calculated Values
+%% Initial Values
 load('CA3MODEL.mat')
 
+% Light entering
 data.light = data.In.green;
-Nv0 = [10E6;10E6;10E6;0.5]; % cells/cm^3 [G,R,flex pico, v0.01g, 0.9r]
+
+% Initial cells cm^-3 
+Nv0 = [10E6;10E6;10E6;0.5]; 
+     %[green,red,flex pico, v]
+
 data.nz = 6;
 data.L = data.L/(60*60);         % converted to /s
 data.pmax = data.pmax/(60*60);   % converted to /s
 data.z = linspace(0,data.zm,data.nz);
 tspan = [0,(60*60*24*50)]; % model span, seconds
 
+%% Model simulation
+% dNvdt calls I.m, Gam.m, and A.m
+
 [T,Nv] = ode45(@(t,Nv) dNvdt(t,Nv,data),tspan,Nv0);
+
+%% Model output
 
 N = Nv(:,1:3);              % number density 
 Td = T/(60*60*24);          % seconds to days
-
 Abs = A(Nv,data);           % absorption per cm
 
 figure(1)
 plot(Td,N,'LineWidth',3)
 legend('green pico','red pico','flexible pico','Location','best')
-title('Density in continuous light')
+title('Cell density in continuous light')
 xlabel('Time, days')
 ylabel('Cell density, cells cm^-3')
 
